@@ -29,7 +29,7 @@ class Course {
       fs.writeFile(
         path.join(__dirname, '..', 'data', 'courses.json'),
         JSON.stringify(courses),
-        (err) => {
+        (err) => { 
           if (err) {
             reject(err)
           } else {
