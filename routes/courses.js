@@ -12,10 +12,10 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id/edit', async (req, res) => {
-  if(!req.query.allow) { //
-    return res.redirect('/') //! если параметра allow нет делаем редирект на главную страницу
+  if (!req.query.allow) {
+    return res.redirect('/')
   }
-  
+
   const course = await Course.getById(req.params.id)
 
   res.render('course-edit', {
@@ -24,7 +24,7 @@ router.get('/:id/edit', async (req, res) => {
   })
 })
 
-router.post('/edit', async (req, res)=> {
+router.post('/edit', async (req, res) => {
   await Course.update(req.body)
   res.redirect('/courses')
 })
